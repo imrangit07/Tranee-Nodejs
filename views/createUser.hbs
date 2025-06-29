@@ -22,7 +22,7 @@
     </header>
     <div class="main-container">
         <div>
-            <h1>Create User</h1>
+            <h1 id="createuser">Create User</h1>
         </div>
         <div class="form-data">
             <form action="/admin/saveuser" method="post">
@@ -31,15 +31,53 @@
                 <input type="text" class="input-form" name="name"><br><br>
 
                 <label>Enter User Email</label><br>
-                <input type="text" class="input-form" name="email"><br><br>
+                <input type="text" class="input-form" name="email" onkeyup="checkEmail(this)"><br>
+                <span id="email-error" style="font-size: 12px;"></span>
+                <br><br>
 
                 <label>Enter Mobail NO.</label><br>
-                <input type="text" class="input-form" name="mobile"><br><br>
+                <input type="text" class="input-form" name="mobile" onkeyup="checkMobile(this)"><br>
+                <span id="mobile-error" style="font-size: 12px;"></span>
+                <br><br>
 
                 <button>Save User</button>
             </form>
         </div>
     </div>
 </body>
+<script>
+
+    const emailError = document.querySelector("#email-error");
+    function checkEmail(mail) {
+        let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+       
+        if (regex.test(mail.value)) {
+            emailError.innerHTML = 'Valid Email address';
+            emailError.style.color = "green";
+            console.log("Valid Email address");
+        } else {
+            emailError.innerHTML = 'Invalid Email address';
+            emailError.style.color = "red";
+            console.log("invalid Email address");
+        }
+    }
+
+    const mobileError = document.querySelector("#mobile-error");
+
+
+    function checkMobile(num){
+        if(isNaN(num.value)){
+            mobileError.innerHTML = "Please Enter Number Only";
+            mobileError.style.color="red";
+        }else{
+            mobileError.innerHTML = "";
+        }
+
+        if(num.value.length > 10){
+            mobileError.innerHTML = "Please Enter Only 10 Digits";
+            mobileError.style.color="red";
+        }
+    }
+</script>
 
 </html>

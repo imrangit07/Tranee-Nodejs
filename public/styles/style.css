@@ -20,7 +20,9 @@ body {
     width: 100%;
     background-color: black;
 }
-
+button{
+    cursor: pointer;
+}
 /* .navbar a {
     text-decoration: none;
     background-color: green;
