@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/admin/home">Home</a>
+            <a href="/admin/createuser">Create User</a>
+            <a href="/admin/add">Add Task</a>
+        </nav>
+    </header>
+    <div>
+        <h1>welcome to my home page</h1>
+    </div>
+    <div>
+        <form action="/admin/addtask" method="post">
+            <label>Select User</label><br>
+            <select name="userId" required>
+                <option value="">--Select User--</option>
+                {{#each users}}
+                <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select><br><br>
+            <label>Enter Task Name</label><br>
+            <input type="text" name="taskName"><br><br>
+
+            <label>Task Type</label><br>
+            <select name="taskType">
+                <option value="">--Select Type--</option>
+                <option value="pending">Panding</option>
+                <option value="done">Done</option>
+            </select>
+
+            <br><br>
+
+            <button>Save User</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
