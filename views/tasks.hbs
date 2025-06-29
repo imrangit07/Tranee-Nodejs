@@ -20,7 +20,7 @@
         <h1>welcome to my home page</h1>
     </div>
     <div>
-        <form action="/admin/addtask" method="post">
+        <form action="/admin/gettask" method="post">
             <label>Select User</label><br>
             <select name="userId" required>
                 <option value="">--Select User--</option>
@@ -28,24 +28,33 @@
                 <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}
             </select><br><br>
-            <label>Enter Task Name</label><br>
-            <input type="text" name="taskName"><br><br>
-
-            <label>Task Type</label><br>
-            <select name="taskType">
-                <option value="">--Select Type--</option>
-                <option value="pending">Panding</option>
-                <option value="done">Done</option>
-            </select>
-
-            <br><br>
-
-            <button>Save User</button>
+           
+            <button>Get Tasks</button>
         </form>
+
+
+        <div>
+             {{#if userTask.length}}
+            <table border="">
+                <th>User Task</th>
+                <th>Task Name</th>
+                <th>Task Type</th>
+                <th>User Mobile No</th>
+                {{#each userTask}}
+                <tr>
+                    <td>{{this.user.name}}</td>
+                    <td>{{this.taskName}}</td>
+                    <td>{{this.taskType}}</td>
+                    <td>{{this.user.mobile}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            {{else}}
+            <div></div>
+            {{/if}}
+        </div>
     </div>
-    <div>
-        <a href="/admin/downloadExcel">download</a>
-    </div>
+     
 </body>
 
 </html>
