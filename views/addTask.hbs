@@ -5,46 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <link rel="stylesheet" href="/styles/style.css">
+
 </head>
 
 <body>
     <header>
-        <nav>
-            <a href="/admin/home">Home</a>
-            <a href="/admin/createuser">Create User</a>
-            <a href="/admin/add">Add Task</a>
-            <a href="/admin/tasks">Tasks</a>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/admin/home" class="all-link">Home</a>
+                <a href="/admin/createuser" class="all-link">Create User</a>
+                <a href="/admin/add" class="all-link">Add Task</a>
+                <a href="/admin/tasks" class="all-link">Get Tasks</a>
+                <a href="/admin/downloadExcel" class="all-link">download</a>
+            </nav>
     </header>
-    <div>
-        <h1>welcome to my home page</h1>
-    </div>
-    <div>
-        <form action="/admin/addtask" method="post">
-            <label>Select User</label><br>
-            <select name="userId" required>
-                <option value="">--Select User--</option>
-                {{#each users}}
-                <option value="{{this.id}}">{{this.name}}</option>
-                {{/each}}
-            </select><br><br>
-            <label>Enter Task Name</label><br>
-            <input type="text" name="taskName"><br><br>
+    <div class="main-container">
+        <div>
+            <h1>Assign Task to User</h1>
+        </div>
+        <div>
+            <div class="form-data">
+                <form action="/admin/addtask" method="post">
+                    <label>Select User</label><br>
+                    <select name="userId" class="select-option" required>
+                        <option value="">--Select User--</option>
+                        {{#each users}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select><br><br>
+                    <label>Enter Task Name</label><br>
+                    <input type="text" name="taskName" class="text-center"><br><br>
 
-            <label>Task Type</label><br>
-            <select name="taskType">
-                <option value="">--Select Type--</option>
-                <option value="pending">Panding</option>
-                <option value="done">Done</option>
-            </select>
+                    <label>Task Type</label><br>
+                    <select name="taskType" class="select-option">
+                        <option value="">--Select Type--</option>
+                        <option value="pending">Panding</option>
+                        <option value="done">Done</option>
+                    </select>
 
-            <br><br>
+                    <br><br>
 
-            <button>Save User</button>
-        </form>
-    </div>
-    <div>
-        <a href="/admin/downloadExcel">download</a>
+                    <button>Save User</button>
+                </form>
+            </div>
+        </div>
+        <div>
+        </div>
     </div>
 </body>
 

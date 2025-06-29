@@ -5,36 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <link rel="stylesheet" href="/styles/style.css">
+
 </head>
 
 <body>
     <header>
-        <nav>
-            <a href="/admin/home">Home</a>
-            <a href="/admin/createuser">Create User</a>
-            <a href="/admin/add">Add Task</a>
-            <a href="/admin/tasks">Tasks</a>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/admin/home" class="all-link">Home</a>
+                <a href="/admin/createuser" class="all-link">Create User</a>
+                <a href="/admin/add" class="all-link">Add Task</a>
+                <a href="/admin/tasks" class="all-link">Get Tasks</a>
+                <a href="/admin/downloadExcel" class="all-link">download</a>
+            </nav>
     </header>
-    <div>
-    <h1>welcome to my home page</h1>
+    <div class="main-container">
+        <div>
+            <h1>Create User</h1>
+        </div>
+        <div class="form-data">
+            <form action="/admin/saveuser" method="post">
+
+                <label>Enter User Name</label><br>
+                <input type="text" class="input-form" name="name"><br><br>
+
+                <label>Enter User Email</label><br>
+                <input type="text" class="input-form" name="email"><br><br>
+
+                <label>Enter Mobail NO.</label><br>
+                <input type="text" class="input-form" name="mobile"><br><br>
+
+                <button>Save User</button>
+            </form>
+        </div>
     </div>
-    <div>
-        <form action="/admin/saveuser" method="post">
-
-            <label>Enter User Name</label><br>
-            <input type="text" name="name" ><br><br>
-
-            <label>Enter User Email</label><br>
-            <input type="text" name="email" ><br><br>
-
-            <label>Enter Mobail NO.</label><br>
-            <input type="text" name="mobile" ><br><br>
-
-            <button>Save User</button>
-        </form>
-    </div>
-      
 </body>
 
 </html>

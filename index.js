@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-
+const path = require('path')
 const Router = require("./routes/adminRoutes")
 const hbs = require("hbs");
 require("dotenv").config({path:"./.env"});
@@ -16,6 +16,7 @@ sequelize.sync({ force: true }).then(async () => {
 
 
 app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname + "/public")))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
